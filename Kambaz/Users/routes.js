@@ -100,7 +100,7 @@ export default function UserRoutes(app) {
             }
             userId = currentUser._id;
         }
-        const courses = await courseDao.findCoursesForEnrolledUser(userId);
+        const courses = await zcourseDao.findCoursesForEnrolledUser(userId);
         res.json(courses);
     };
     app.get("/api/users/:userId/courses", findCoursesForEnrolledUser);
@@ -152,4 +152,4 @@ export default function UserRoutes(app) {
         res.json(courses);
     };
     app.get("/api/users/:uid/courses", findCoursesForUser);
-
+}
