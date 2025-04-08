@@ -145,7 +145,7 @@ export default function UserRoutes(app) {
     };
     app.get("/api/users/:uid/courses", findCoursesForUser);
 
-    const findCoursesForEnrolledUser = (req, res) => {
+    const findCoursesForEnrolledUser = async (req, res) => {
         let { userId } = req.params;
         if (userId === "current") {
             const currentUser = req.session["currentUser"];
@@ -155,7 +155,7 @@ export default function UserRoutes(app) {
             }
             userId = currentUser._id;
         }
-        const courses = courseDao.findCoursesForEnrolledUser(userId);
+        const courses = await courseDao.findCoursesForEnrolledUser(userId);
         res.json(courses);
     };
     app.get("/api/users/:userId/courses", findCoursesForEnrolledUser);
