@@ -25,7 +25,6 @@ const sessionOptions = {
     resave: false,
     saveUninitialized: false,
 };
-app.use(session(sessionOptions));
 if (process.env.NODE_ENV !== "development") {
     sessionOptions.proxy = true;
     sessionOptions.cookie = {
@@ -34,6 +33,8 @@ if (process.env.NODE_ENV !== "development") {
         domain: process.env.NODE_SERVER_DOMAIN,
     };
 }
+app.use(session(sessionOptions));
+
 app.use(express.json());
 
 Lab5(app)
