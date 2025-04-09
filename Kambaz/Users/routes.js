@@ -144,7 +144,7 @@ export default function UserRoutes(app) {
         res.json(courses);
     };
     app.get("/api/users/:uid/courses", findCoursesForUser);
-/*
+
     const findCoursesForEnrolledUser = async (req, res) => {
         let { userId } = req.params;
         if (userId === "current") {
@@ -159,5 +159,4 @@ export default function UserRoutes(app) {
         res.json(courses);
     };
     app.get("/api/users/:userId/courses", findCoursesForEnrolledUser);
-    */
 }
